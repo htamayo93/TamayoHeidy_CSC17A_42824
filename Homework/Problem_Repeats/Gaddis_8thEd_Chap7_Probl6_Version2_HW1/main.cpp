@@ -66,39 +66,31 @@ int main(int argc, char** argv) {
             cout<<sunny<<" sunny days."<<endl;
             cout<<cloudy<<" cloudy days."<<endl<<endl;
         }
-        if (i==1)
+        else if (i==1)
         {
             cout<<"For the month of July there was:"<<endl;
             cout<<rainy<<" rainy days."<<endl;
             cout<<sunny<<" sunny days."<<endl;
             cout<<cloudy<<" cloudy days."<<endl<<endl;
         }
-        if (i==2)
+        else if (i==2)
         {
             cout<<"For the month of August there was:"<<endl;
             cout<<rainy<<" rainy days."<<endl;
             cout<<sunny<<" sunny days."<<endl;
             cout<<cloudy<<" cloudy days."<<endl<<endl;
         }
+        bigRain=rainy;//sets as the rainy month for now
         sunTot=sunny+sunTot;//Adding the amount of sunny days to the total
         rainTot=rainy+rainTot;//Adding the amount of rainy days to the total
         clouTot=cloudy+clouTot;//Adding the amount of the cloudy days to the total
+        //If loop to determine which month had more rain
+        if(bigRain<rainy)
+        {
+            bigRain=rainy;
+        }
         rainy=sunny=cloudy=0;
     }
-   
-//    bigRain=rainy;//sets as the rainy month for now
-//
-//    //If loop to determine which month had more rain
-//    if(bigRain<rainy)
-//    {
-//        bigRain=rainy;
-//    }
-//    
-//    //If loop to determine which month had more rain
-//    if(bigRain<rainy)
-//    {
-//        bigRain=rainy;
-//    }
     
     //Output of results
     cout <<"For the three months combined."<<endl;
@@ -107,18 +99,18 @@ int main(int argc, char** argv) {
     cout<<"The total amount of cloudy days was "<<clouTot<<"."<<endl;
 
     // Displays the month with the most rainy days
-//    cout<<endl<<"The month with the most rainy days was ";
-//        if (bigRain==9)
-//        {
-//            cout<<"June with "<<bigRain<<" rainy days."<<endl<<endl;
-//        }
-//        else if(bigRain==6)
-//        {
-//            cout<<"July with "<<bigRain<<" rainy days."<<endl<<endl;
-//        }
-//        else if (bigRain==10)
-//        {
-//            cout<<"August with "<<bigRain<<" rainy days."<<endl<<endl;
-//        }
-	return 0;
+    cout<<endl<<"The month with the most rainy days was "<<endl;
+        if (bigRain==9)
+        {
+            cout<<"June with "<<bigRain<<" rainy days."<<endl<<endl;
+        }
+        else if(bigRain==6)
+        {
+            cout<<"July with "<<bigRain<<" rainy days."<<endl<<endl;
+        }
+        else if (bigRain==10)
+        {
+            cout<<"August with "<<bigRain<<" rainy days."<<endl<<endl;
+        }
+    return 0;
 }
