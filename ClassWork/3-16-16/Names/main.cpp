@@ -14,11 +14,8 @@ void sort(string [],int);
 void dis(string [],int);
 
 int main(int argc, char* argv[]) {
-    // arr[] = {1,2,3}
-    // arr == &arr[0]
-    // *arr[] == *(&arr[0])
-    //*(arr[0])]
-    // *(arr+0))
+    // int b[n]
+    //int *a[n] 
     int number=9;
     string names[number];
     ifstream in;
