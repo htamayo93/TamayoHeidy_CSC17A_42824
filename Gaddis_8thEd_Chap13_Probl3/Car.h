@@ -6,6 +6,7 @@
  */
 
 #include <string>
+#include <iostream>
 using namespace std;
 #ifndef CAR_H
 #define	CAR_H
@@ -22,8 +23,7 @@ public:
     void setmake(string);
     string getmake();
     int accel();
-    int deccel();
-    
+    int brake();
 };
 
 #endif	/* CAR_H */

@@ -29,8 +29,10 @@ string Car::getmake()
 int Car::accel()
 {
     speed+=5;
+    cout<<speed<<endl;
 }
-int Car::deccel()
+int Car::brake()
 {
     speed-=5;
+    cout<<speed<<endl;
 }

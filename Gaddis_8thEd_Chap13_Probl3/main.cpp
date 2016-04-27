@@ -28,6 +28,34 @@ int main(int argc, char** argv) {
     cout<<"Please enter the make of the car."<<endl;
     cin>>make;
     info.setmake(make);
+    cout<<"The year of the car is ";
+    cout<<info.getmodel()<<endl;
+    cout<<"The make of the car is ";
+    cout<<info.getmake();
+    cout<<endl<<endl<<"The car will accelerate five times."<<endl;
+    cout<<"The speed of the car after the first time is:"<<endl;
+    info.accel();
+    cout<<"The speed of the car after the second time is:"<<endl;
+    info.accel();
+    cout<<"The speed of the car after the third time is:"<<endl;
+    info.accel();
+    cout<<"The speed of the car after the fourth time is:"<<endl;
+    info.accel();
+    cout<<"The speed of the car after the fifth time is:"<<endl;
+    info.accel();
+    
+    
+    cout<<endl<<endl<<"The car will brake five times."<<endl;
+    cout<<"The speed of the car after the first time is:"<<endl;
+    info.brake();
+    cout<<"The speed of the car after the second time is:"<<endl;
+    info.brake();
+    cout<<"The speed of the car after the third time is:"<<endl;
+    info.brake();
+    cout<<"The speed of the car after the fourth time is:"<<endl;
+    info.brake();
+    cout<<"The speed of the car after the fifth time is:"<<endl;
+    info.brake();
     
     //Exit stage right
     return 0;
