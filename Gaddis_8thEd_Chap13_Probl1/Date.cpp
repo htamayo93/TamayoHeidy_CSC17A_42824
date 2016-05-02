@@ -5,8 +5,7 @@
  */
 
 #include "Date.h"
-#include <iostream>
-using namespace std;
+
 void Date::setday(int y) {
     day=y;
 }
@@ -30,7 +29,7 @@ int Date::getyear()
 }
 void Date::format1()
 {
-    cout<<month<<"/"<<day<<"/"<<year<<endl;
+    cout<<endl<<month<<"/"<<day<<"/"<<year<<endl;
 }
 void Date::format2()
 {

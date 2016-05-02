@@ -4,6 +4,9 @@
  * Created on April 26, 2016, 12:22 PM
  */
 
+#include <iostream>
+using namespace std;
+
 #ifndef DATE_H
 #define	DATE_H
 
@@ -23,7 +26,7 @@ private:
     int month;
     int day;
     int year;
-
+    
 };
 
 #endif	/* DATE_H */

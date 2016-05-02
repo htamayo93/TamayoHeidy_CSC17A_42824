@@ -17,10 +17,10 @@ public:
     string getname();
     void setadd(string);
     string getadd();
-    void getage(int);
-    int setage();
-    void getphone(int);
-    int setphone();
+    void setage(int);
+    int getage();
+    void setphone(int);
+    int getphone();
    
 private:
     string name;
