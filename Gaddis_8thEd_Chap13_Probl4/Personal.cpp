@@ -30,11 +30,11 @@ int Personal::getage()
 {
     return age;
 }
-void Personal::setphone(int x)
+void Personal::setphone(string x)
 {
     phone=x;
 }
-int Personal::getphone()
+string Personal::getphone()
 {
     return phone;
 }

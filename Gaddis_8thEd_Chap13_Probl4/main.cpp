@@ -22,62 +22,90 @@ int main(int argc, char** argv) {
     string name;
     string add;
     int age;
-    int phone;
+    string phone;
     char choice;
-    Personal infomin;
-    Personal infofam;
-    Personal infofri;
+    Personal mine;
+    Personal family;
+    Personal friends;
     
     cout<<"Whose personal information will you be writing?"<<endl;
     cout<<"Enter f for family,m for mine, or r for friend."<<endl;
     cin>>choice;
     choice=toupper(choice);
+    cin.ignore();
     if(choice=='F')
     {
         cout<<"What is your family member's name?"<<endl;
-        cin>>name;
-        infofam.setname(name);
+        getline(cin,name);
+        family.setname(name);
         cout<<"What is your family member's address?"<<endl;
-        cin>>add;
-        infofam.setadd(add);
+        getline(cin,add);
+        family.setadd(add);
         cout<<"What is your family member's age?"<<endl;
         cin>>age;
-        infofam.setage(age);
+        family.setage(age);
         cout<<"What is your family member's Phone number?"<<endl;
-        cin>>phone;
-        infofam.setphone(phone);
+        cin.ignore();
+        getline(cin,phone);
+        family.setphone(phone);
+        
+        cout<<endl<<endl<<endl;
+        cout<<"Information entered:"<<endl;
+        cout<<"Name: "<<family.getname()<<endl;
+        cout<<"Address: "<<family.getadd()<<endl;
+        cout<<"Age: "<<family.getage()<<endl;
+        cout<<"Phone Number: "<<family.getphone()<<endl;
     }
-    else if(choice='M')
+    else if(choice=='M')
     {
         cout<<"What is your name?"<<endl;
-        cin>>name;
-        infomin.setname(name);
+        getline(cin,name);
+        mine.setname(name);
         cout<<"What is your address?"<<endl;
-        cin>>add;
-        infomin.setadd(add);
+        getline(cin,add);
+        mine.setadd(add);
         cout<<"What is your age?"<<endl;
         cin>>age;
-        infomin.setage(age);
+        mine.setage(age);
         cout<<"What is your Phone number?"<<endl;
-        cin>>phone;
-        infomin.setphone(phone);
+        cin.ignore();
+        getline(cin,phone);
+        mine.setphone(phone);
+        
+        cout<<endl<<endl<<endl;
+        cout<<"Information entered:"<<endl;
+        cout<<"Name: "<<mine.getname()<<endl;
+        cout<<"Address: "<<mine.getadd()<<endl;
+        cout<<"Age: "<<mine.getage()<<endl;
+        cout<<"Phone Number: "<<mine.getphone()<<endl;
     }
-    else if(choice='R')
+    else if(choice=='R')
     {
         cout<<"What is your friend's name?"<<endl;
-        cin>>name;
-        infofri.setname(name);
+        getline(cin,name);
+        friends.setname(name);
         cout<<"What is your friend's address?"<<endl;
-        cin>>add;
-        infofri.setadd(add);
+        getline(cin,add);
+        friends.setadd(add);
         cout<<"What is your friend's age?"<<endl;
         cin>>age;
-        infofri.setage(age);
+        friends.setage(age);
         cout<<"What is your Phone friend's number?"<<endl;
-        cin>>phone;
-        infofri.setphone(phone);
+        cin.ignore();
+        getline(cin,phone);
+        friends.setphone(phone);
+        
+        cout<<endl<<endl<<endl;
+        cout<<"Information entered:"<<endl;
+        cout<<"Name: "<<friends.getname()<<endl;
+        cout<<"Address: "<<friends.getadd()<<endl;
+        cout<<"Age: "<<friends.getage()<<endl;
+        cout<<"Phone Number: "<<friends.getphone()<<endl;
     }
-    
+    else
+    {
+        cout<<"Please restart and enter a correct letter choice."<<endl;
+    }
     //Exit stage right
     return 0;
 }

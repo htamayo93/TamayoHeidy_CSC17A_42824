@@ -19,14 +19,14 @@ public:
     string getadd();
     void setage(int);
     int getage();
-    void setphone(int);
-    int getphone();
+    void setphone(string);
+    string getphone();
    
 private:
     string name;
     string add;
     int age;
-    int phone;
+    string phone;
 };
 
 #endif	/* PERSONAL_H */
