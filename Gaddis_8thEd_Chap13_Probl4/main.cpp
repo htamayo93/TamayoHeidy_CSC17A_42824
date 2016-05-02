@@ -106,6 +106,7 @@ int main(int argc, char** argv) {
     {
         cout<<"Please restart and enter a correct letter choice."<<endl;
     }
+    
     //Exit stage right
     return 0;
 }
