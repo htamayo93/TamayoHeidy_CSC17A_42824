@@ -7,9 +7,9 @@
 /*
  *   Memory allocation
 
-    ***Functions with structures, used as input and output
+     Functions with structures, used as input and output
 
-    Pointers with arrays and arrays of structures, internally as well as externally.
+    ***Pointers with arrays and arrays of structures, internally as well as externally.
 
      Use of character arrays as well as string objects.
 
@@ -18,11 +18,10 @@
 
 //System Libraries
 #include <iostream> //I/O
-#include <string>  //string 
+#include <string>   //string 
 #include <iomanip>  //Formatting 
 #include <cstdlib>  //srand and rand function
 #include <fstream>  //File I/O
-#include <cstring>  //character array strings
 using namespace std;
 
 //User Libraries
@@ -30,7 +29,7 @@ struct Usepick
 {
     string choice[4];//The 4 colors the user chooses
     int limit;//The limit the user inputs
-    char answer, hint,change;//The response of whether the user would like to play again or take a hint
+    char answer, hint;//The response of whether the user would like to play again or take a hint
 };
 
 //Global Constants
@@ -39,7 +38,8 @@ struct Usepick
 void comGen(string [][4],string []);//Function to generate the 4 random colors from the computer
 void useGen(string[]);//Function to allow the user to enter their four colors
 void compare(string [],string [],float,int&,int);//Comparison of the computer generated and the users
-char hints(string [],string [],bool,char);//hints the user may have if they choose to 
+char hints(string [],string [],bool,char);//hints the user may have if they choose to
+int determ(string [],string []);//Determine the linear search 
 int tries(int);//The number of tries the user would want
 
 //Execution Begins Here
@@ -59,7 +59,6 @@ int main(int argc, char** argv) {
     fstream in;//File output 
     Usepick info;//Brings the information to the structure
     string str;
-    char *name=new char[10];
     
     //Open the file
     in.open("Instructions.txt", ios::in|ios::binary);
@@ -85,27 +84,8 @@ int main(int argc, char** argv) {
                 cout<<com[r][c]<<" ";
             }
         }
-//        
-//        cout<<endl<<"Please enter a five letter nickname you would like to be recorded as."<<endl;
-//        for(int i=0;i<strlen(name);i++)
-//        {
-//            cin>>*(name+i);
-//        }
-//                
         //function to determine the limit
-        if(info.limit<10)
-        {
-            cout<<endl<<"Warning you have chosen to have less than 10 tries."<<endl;
-            cout<<"Your gave will be more difficult."<<endl;
-            cout<<"If you have changed your mind press 'c' to change your limit"<<endl;
-            cout<<"to 10 otherwise enter anything else to keep your same number"<<endl;
-            cout<<"tries."<<endl;
-            cin>>info.change;
-            info.change=toupper(info.change);
-//            if(info.change);
-        }
         info.limit=info.limit>numTry?info.limit:numTry;
-        
         //Determining colors by the computer
         comGen(com,compran);
         
@@ -134,9 +114,11 @@ int main(int argc, char** argv) {
             }
             n++;  
         }
+        determ(info.choice,compran);
         //Output of results
         cout<<"The computer choices were            "<<compran[0]<<" "<<compran[1]<<" "<<compran[2]<<" "<<compran[3]<<endl;
         cout<<"Your final results were              "<<info.choice[0]<<" "<<info.choice[1]<<" "<<info.choice[2]<<" "<<info.choice[3]<<endl;
+        cout<<"The linear search was "<<determ<<"."<<endl;
         cout<<endl<<"Would you like to play again?"<<endl;
         cin>>info.answer;
         cout<<endl;
@@ -152,7 +134,7 @@ int main(int argc, char** argv) {
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //                Allows the user to enter the number of tries
 //******************************************************************************
-int tries(int limit)
+int tries(int limit=10)
 {
     cin>>limit;
     return limit;
@@ -167,7 +149,6 @@ void comGen (string com[][4], string compran[])
         int index=rand()%4;
         int row=rand()%2;
         compran[i]=com[row][index];
-        cout<<compran[i]<<" ";
     }
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
@@ -244,47 +225,33 @@ char hints(string compran[],string choice[],bool hint2,char hint)
         {
             //else if statements to determine which hint will be outputted
             if (!(compran[0]==choice[0])&&compran[1]==choice[1]&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your second,third and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your first,third and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your first, second, and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your first, second, and third choice are in the correct spot."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;}
             else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your third and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your second and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your second and third choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your first and fourth choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your first and third choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your first and second choice are in the correct spot."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;
-                cout<<"Your first choice is in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;
-                cout<<"Your second choice is in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;
-                cout<<"Your third choice is in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;}
             else if (!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have one in the correct spot."<<endl;
-                cout<<"Your fourth choice is in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;}
             else{
                 cout<<"None of the colors are correct."<<endl;}
             break;
@@ -296,4 +263,31 @@ char hints(string compran[],string choice[],bool hint2,char hint)
         }
     }
     return hint;
+}
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                      Linear Search
+//Inputs:
+//  a->Array or List
+//  n->Size of List
+//  strt->Starting Position
+//  val->Value to find
+//Outputs:
+//  pos->Index where value is found
+//******************************************************************************
+int determ(string compran[],string choice[])
+{
+    int i = 0;			
+    int pos = -1;	
+    bool found = false;		
+    while (i <4 && !found)
+    {
+        if (compran[i] == choice[i])
+        {
+            found = true;
+            pos = i;		  			
+        }
+        i++;					
+    }
+    return pos;				
 }
