@@ -25,13 +25,14 @@ int main(int argc, char** argv) {
     cout<<"Please enter the number you would like converted."<<endl;
     cin>>number;
     
-    if(number<9999||number>0)
+    if(number>9999||number<0)
     {
         cout<<"Error:Please enter a valid number."<<endl;
+        cout<<"Exiting the Program."<<endl;
     }
     else
     {
-        convert.print();
+        convert.print(number);
     }
     //Exit stage right
     return 0;
