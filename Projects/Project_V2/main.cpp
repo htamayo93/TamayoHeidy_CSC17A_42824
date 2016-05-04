@@ -42,6 +42,7 @@ char hints(string [],string [],bool,char);//hints the user may have if they choo
 int tries(int);//The number of tries the user would want
 void results(string [],string []);
 char playA(char);
+void wonLost(string [],string [],bool,char,int,int,float);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -113,18 +114,8 @@ int main(int argc, char** argv) {
             //The color the user wants to pick
             useGen(info.choice);
             
-            //if else statement to determine if the user has won or not
-            if(compran[0]==info.choice[0]&&compran[1]==info.choice[1]&&compran[2]==info.choice[2]&&compran[3]==info.choice[3]){
-            {
-                compare(compran,info.choice,percent,n,info.limit);
-            }
-            }
-            else
-            {
-                hints(compran,info.choice,hint2,info.hint);
-                cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<10-(n+1)<<" tries left before it is considered you have lost the game."<<endl;
-                cout<<"You do however have "<<info.limit-(n+1)<<" tries left."<<endl;
-            }
+            wonLost(info.choice,compran,hint2,info.hint,info.limit,n,percent);
+            
             //if statement to indicate the user has used up the ten turns they had
             if (n==9)
             {
@@ -303,4 +294,21 @@ char playA(char answer)
         cin>>answer;
         cout<<endl;
         answer=toupper(answer);
+}
+
+
+void wonLost(string choice[],string compran [],bool hint2,char hint,int limit, int n, float percent)
+{
+    //if else statement to determine if the user has won or not
+    if(compran[0]==choice[0]&&compran[1]==choice[1]&&compran[2]==choice[2]&&compran[3]==choice[3]){
+    {
+        compare(compran,choice,percent,n,limit);
+    }
+    }
+    else
+    {
+        hints(compran,choice,hint2,hint);
+        cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<10-(n+1)<<" tries left before it is considered you have lost the game."<<endl;
+        cout<<"You do however have "<<limit-(n+1)<<" tries left."<<endl;
+    }
 }
