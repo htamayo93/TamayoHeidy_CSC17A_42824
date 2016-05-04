@@ -71,39 +71,27 @@ int main(int argc, char** argv) {
         in.open("Instructions.txt", ios::in|ios::binary);
 
         //reads the file
-        while (getline(in,str))
-        {
-            cout<<str;
-        }
+        while (getline(in,str)){cout<<str;}
         in.close(); 
         
         info.limit=tries(info.limit);
         //Color choices avaliable
         cout<<"The colors you can pick from are"<<endl;
         for(int r=0;r<2;r++)
-        {
-            for(int c=0;c<4;c++)
-            {
-                cout<<com[r][c]<<" ";
-            }
-        }
+        {for(int c=0;c<4;c++){
+            cout<<com[r][c]<<" ";}}
         
         if(info.limit<10)
-        {
-            cout<<endl<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
+        {   cout<<endl<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
             cout<<"is allowed. If you would like to have to have 10 tries then"<<endl;
             cout<<"the number you inputted type 'c' otherwise type anything else."<<endl;
             cin>>info.change;
-            info.change=toupper(info.change);
-            if(info.change=='C')
-            {
-                info.limit=info.limit>numTry?info.limit:numTry;
-            }
-        }
+          
+          info.change=toupper(info.change);
+          if(info.change=='C'){
+            info.limit=info.limit>numTry?info.limit:numTry;}}
         else
-        {
-            triesN=new int[info.limit];
-        }
+        {triesN=new int[info.limit];}
         
         //Determining colors by the computer
         comGen(com,compran);
@@ -119,10 +107,8 @@ int main(int argc, char** argv) {
             
             //if statement to indicate the user has used up the ten turns they had
             if (n==9)
-            {
-                //Output of results after all tries have been used up
-                cout<<"You have used all your tries and have lost the game."<<endl<<endl;
-            }
+            {   //Output of results after all tries have been used up
+                cout<<"You have used all your tries and have lost the game."<<endl<<endl;}
             n++;  
         }
         results(compran,info.choice);
