@@ -9,7 +9,7 @@
 
     ***Functions with structures, used as input and output
 
-    Pointers with arrays and arrays of structures, internally as well as externally.
+    ***Pointers with arrays and arrays of structures, internally as well as externally.
 
     Use of character arrays as well as string objects.
 
@@ -35,7 +35,7 @@ struct Usepick
 //Global Constants
 
 //Functional Prototypes
-void comGen(string [][4],string []);//Function to generate the 4 random colors from the computer
+void comGen(string [][4],string *);//Function to generate the 4 random colors from the computer
 void useGen(string[]);//Function to allow the user to enter their four colors
 int compare(string [],string [],float,int&,int);//Comparison of the computer generated and the users
 char hints(string [],string [],bool,char);//hints the user may have if they choose to
@@ -43,6 +43,7 @@ int tries(int);//The number of tries the user would want
 void results(string [],string []);
 char playA(char);
 int wonLost(string [],string [],bool,char,int,int,float);
+void nameuse(char *);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -53,7 +54,7 @@ int main(int argc, char** argv) {
     //Declare and initialize variable  
     string com[2][4]={{"RED","BLUE","GREEN","BROWN"},
                      {"WHITE","BLACK","ORANGE","YELLOW"}};//Array that the computer picks from
-    string compran[4]; //The 4 colors the computer generates
+    string *compran; //The 4 colors the computer generates
     int numTry=10;//The number of tries the user gets before it is considered they have lost.
     int n=0;//The increments to indicate the turns allowed before the user loses
     float percent;//The intervals of the turns, the percentage of the accuracy 
@@ -62,8 +63,8 @@ int main(int argc, char** argv) {
     Usepick info;//Brings the information to the structure
     string str;
     int *triesN;
+    char *name;
      
-
     //Do while loop to see if the user would like to play again
     do
     {
@@ -78,7 +79,7 @@ int main(int argc, char** argv) {
         //Color choices avaliable
         cout<<"The colors you can pick from are"<<endl;
         for(int r=0;r<2;r++)
-        {for(int c=0;c<4;c++){
+        {   for(int c=0;c<4;c++){
             cout<<com[r][c]<<" ";}}
         
         if(info.limit<10)
@@ -112,6 +113,8 @@ int main(int argc, char** argv) {
             n++;  
         }
         results(compran,info.choice);
+
+        nameuse(name) ;
         info.answer=playA(info.answer);
         if(info.answer=='Y')
         {
@@ -138,12 +141,12 @@ int tries(int limit=10)
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //                 Generates the computer's random values
 //******************************************************************************
-void comGen (string com[][4], string compran[])
+void comGen (string com[][4], string *compran)
 {   for (int i=0;i<4;i++)
     {
         int index=rand()%4;
         int row=rand()%2;
-        compran[i]=com[row][index];
+        *(compran+i)=com[row][index];
     }
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
@@ -313,5 +316,16 @@ int wonLost(string choice[],string compran [],bool hint2,char hint,int limit, in
         cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<10-(n+1)<<" tries left before it is considered you have lost the game."<<endl;
         cout<<"You do however have "<<limit-(n+1)<<" tries left."<<endl;
         return n;
+    }
+}
+
+void nameuse(char *name)
+{
+    int SIZE=99;
+    name=new char[SIZE]; 
+    cout<<"Please enter the name you would like associated with the game played."<<endl;
+    for(int i=0;i<SIZE;i++)
+    {
+        cin>>*(name+i);
     }
 }
