@@ -11,7 +11,7 @@
 
     Pointers with arrays and arrays of structures, internally as well as externally.
 
-     Use of character arrays as well as string objects.
+    Use of character arrays as well as string objects.
 
     ***Reading and writing to binary files.
  */
@@ -114,6 +114,7 @@ int main(int argc, char** argv) {
             //The color the user wants to pick
             useGen(info.choice);
             
+            //Function to determine if the user has won or lost the game
             wonLost(info.choice,compran,hint2,info.hint,info.limit,n,percent);
             
             //if statement to indicate the user has used up the ten turns they had
@@ -126,6 +127,8 @@ int main(int argc, char** argv) {
         }
         results(compran,info.choice);
         info.answer=playA(info.answer);
+        cout<<"You have chosen '"<<info.answer<<"' as your answer therefore the game will repeat."<<endl;
+        
         n=1;
     }while(info.answer=='Y');
     
