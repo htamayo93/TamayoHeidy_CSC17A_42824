@@ -5,7 +5,7 @@
  */
 
 /*
- *   Memory allocation
+    ***Memory allocation
 
     ***Functions with structures, used as input and output
 
@@ -39,8 +39,9 @@ void comGen(string [][4],string []);//Function to generate the 4 random colors f
 void useGen(string[]);//Function to allow the user to enter their four colors
 void compare(string [],string [],float,int&,int);//Comparison of the computer generated and the users
 char hints(string [],string [],bool,char);//hints the user may have if they choose to
-int determ(string [],string []);//Determine the linear search 
 int tries(int);//The number of tries the user would want
+void results(string [],string []);
+char playA(char);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -88,12 +89,12 @@ int main(int argc, char** argv) {
         
         if(info.limit<10)
         {
-            cout<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
-            cout<<" is allowed. If you would like to have to have 10 tries then"<<endl;
-            cout<<" the number you inputted type 'c' otherwise type anything else."<<endl;
+            cout<<endl<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
+            cout<<"is allowed. If you would like to have to have 10 tries then"<<endl;
+            cout<<"the number you inputted type 'c' otherwise type anything else."<<endl;
             cin>>info.change;
             info.change=toupper(info.change);
-            if(info.change='C')
+            if(info.change=='C')
             {
                 info.limit=info.limit>numTry?info.limit:numTry;
             }
@@ -111,6 +112,7 @@ int main(int argc, char** argv) {
         {
             //The color the user wants to pick
             useGen(info.choice);
+            
             //if else statement to determine if the user has won or not
             if(compran[0]==info.choice[0]&&compran[1]==info.choice[1]&&compran[2]==info.choice[2]&&compran[3]==info.choice[3]){
             {
@@ -131,15 +133,8 @@ int main(int argc, char** argv) {
             }
             n++;  
         }
-        determ(info.choice,compran);
-        //Output of results
-        cout<<"The computer choices were            "<<compran[0]<<" "<<compran[1]<<" "<<compran[2]<<" "<<compran[3]<<endl;
-        cout<<"Your final results were              "<<info.choice[0]<<" "<<info.choice[1]<<" "<<info.choice[2]<<" "<<info.choice[3]<<endl;
-        cout<<"The linear search was "<<determ<<"."<<endl;
-        cout<<endl<<"Would you like to play again?"<<endl;
-        cin>>info.answer;
-        cout<<endl;
-        info.answer=toupper(info.answer);
+        results(compran,info.choice);
+        info.answer=playA(info.answer);
         n=1;
     }while(info.answer=='Y');
     
@@ -294,30 +289,18 @@ char hints(string compran[],string choice[],bool hint2,char hint)
     }
     return hint;
 }
-//000000011111111112222222222333333333344444444445555555555666666666677777777778
-//345678901234567890123456789012345678901234567890123456789012345678901234567890
-//                      Linear Search
-//Inputs:
-//  a->Array or List
-//  n->Size of List
-//  strt->Starting Position
-//  val->Value to find
-//Outputs:
-//  pos->Index where value is found
-//******************************************************************************
-int determ(string compran[],string choice[])
+
+void results(string compran[],string choice[])
 {
-    int i = 0;			
-    int pos = -1;	
-    bool found = false;		
-    while (i <4 && !found)
-    {
-        if (compran[i] == choice[i])
-        {
-            found = true;
-            pos = i;		  			
-        }
-        i++;					
-    }
-    return pos;				
+   //Output of results
+    cout<<"The computer choices were            "<<compran[0]<<" "<<compran[1]<<" "<<compran[2]<<" "<<compran[3]<<endl;
+    cout<<"Your final results were              "<<choice[0]<<" "<<choice[1]<<" "<<choice[2]<<" "<<choice[3]<<endl;
+}
+
+char playA(char answer)
+{
+    cout<<endl<<"Would you like to play again?"<<endl;
+        cin>>answer;
+        cout<<endl;
+        answer=toupper(answer);
 }
