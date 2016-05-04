@@ -7,9 +7,9 @@
 /*
  *   Memory allocation
 
-     Functions with structures, used as input and output
+    ***Functions with structures, used as input and output
 
-    ***Pointers with arrays and arrays of structures, internally as well as externally.
+    Pointers with arrays and arrays of structures, internally as well as externally.
 
      Use of character arrays as well as string objects.
 
@@ -29,7 +29,7 @@ struct Usepick
 {
     string choice[4];//The 4 colors the user chooses
     int limit;//The limit the user inputs
-    char answer, hint;//The response of whether the user would like to play again or take a hint
+    char answer, hint,change;//The response of whether the user would like to play again or take a hint
 };
 
 //Global Constants
@@ -59,6 +59,7 @@ int main(int argc, char** argv) {
     fstream in;//File output 
     Usepick info;//Brings the information to the structure
     string str;
+    int *triesN;
     
     //Open the file
     in.open("Instructions.txt", ios::in|ios::binary);
@@ -84,8 +85,24 @@ int main(int argc, char** argv) {
                 cout<<com[r][c]<<" ";
             }
         }
-        //function to determine the limit
-        info.limit=info.limit>numTry?info.limit:numTry;
+        
+        if(info.limit<10)
+        {
+            cout<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
+            cout<<" is allowed. If you would like to have to have 10 tries then"<<endl;
+            cout<<" the number you inputted type 'c' otherwise type anything else."<<endl;
+            cin>>info.change;
+            info.change=toupper(info.change);
+            if(info.change='C')
+            {
+                info.limit=info.limit>numTry?info.limit:numTry;
+            }
+        }
+        else
+        {
+            triesN=new int[info.limit];
+        }
+        
         //Determining colors by the computer
         comGen(com,compran);
         
@@ -225,33 +242,46 @@ char hints(string compran[],string choice[],bool hint2,char hint)
         {
             //else if statements to determine which hint will be outputted
             if (!(compran[0]==choice[0])&&compran[1]==choice[1]&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;
+                cout<<"Your second, third and fourth choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;
+                cout<<"Your first, third and fourth choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;
+                cout<<"Your first, second, and fourth choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have three in the correct spot and one not."<<endl;}
+                cout<<"You have three in the correct spot and one not."<<endl;
+                cout<<"Your first, second, and third choice are in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;
+                cout<<"Your third and fourth choice are in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;
+                cout<<"Your second and fourth choice are in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;
+                cout<<"Your second and third choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;
+                cout<<"Your first and fourth choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;}
+                cout<<"You have two in the correct spot and two not."<<endl;
+                cout<<"Your first and third choice are in the correct spot."<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
                 cout<<"You have two in the correct spot and two not."<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;
+                cout<<"Your first choice is in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;
+                cout<<"Your second choice is in the correct spot."<<endl;}
             else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;
+                cout<<"Your third choice is in the correct spot."<<endl;}
             else if (!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have one in the correct spot."<<endl;}
+                cout<<"You have one in the correct spot."<<endl;
+                cout<<"Your fourth choice is in the correct spot."<<endl;}
             else{
                 cout<<"None of the colors are correct."<<endl;}
             break;
