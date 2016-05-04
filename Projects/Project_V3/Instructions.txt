@@ -1,0 +1,5 @@
+This program will run the game known as Mastermind.
+You have 10 chances to guess the 4 colors the computer picked randomly before you lose
+but are given the chance to play more times. With that being said how many tries would
+like? Please remember that order matters in this games and there are duplicates.
+
