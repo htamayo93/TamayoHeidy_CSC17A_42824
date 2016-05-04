@@ -5,7 +5,7 @@
  */
 
 /*
-    ***Memory allocation
+    Memory allocation
 
     ***Functions with structures, used as input and output
 
@@ -37,12 +37,12 @@ struct Usepick
 //Functional Prototypes
 void comGen(string [][4],string []);//Function to generate the 4 random colors from the computer
 void useGen(string[]);//Function to allow the user to enter their four colors
-void compare(string [],string [],float,int&,int);//Comparison of the computer generated and the users
+int compare(string [],string [],float,int&,int);//Comparison of the computer generated and the users
 char hints(string [],string [],bool,char);//hints the user may have if they choose to
 int tries(int);//The number of tries the user would want
 void results(string [],string []);
 char playA(char);
-void wonLost(string [],string [],bool,char,int,int,float);
+int wonLost(string [],string [],bool,char,int,int,float);
 
 //Execution Begins Here
 int main(int argc, char** argv) {
@@ -62,21 +62,21 @@ int main(int argc, char** argv) {
     Usepick info;//Brings the information to the structure
     string str;
     int *triesN;
-    
-    //Open the file
-    in.open("Instructions.txt", ios::in|ios::binary);
-    
-    //reads the file
-    while (getline(in,str))
-    {
-        cout<<str;
-    }
-    in.close();  
+     
 
     //Do while loop to see if the user would like to play again
     do
     {
-        //Output description
+       //Open the file
+        in.open("Instructions.txt", ios::in|ios::binary);
+
+        //reads the file
+        while (getline(in,str))
+        {
+            cout<<str;
+        }
+        in.close(); 
+        
         info.limit=tries(info.limit);
         //Color choices avaliable
         cout<<"The colors you can pick from are"<<endl;
@@ -115,7 +115,7 @@ int main(int argc, char** argv) {
             useGen(info.choice);
             
             //Function to determine if the user has won or lost the game
-            wonLost(info.choice,compran,hint2,info.hint,info.limit,n,percent);
+            n=wonLost(info.choice,compran,hint2,info.hint,info.limit,n,percent);
             
             //if statement to indicate the user has used up the ten turns they had
             if (n==9)
@@ -127,7 +127,10 @@ int main(int argc, char** argv) {
         }
         results(compran,info.choice);
         info.answer=playA(info.answer);
-        cout<<"You have chosen '"<<info.answer<<"' as your answer therefore the game will repeat."<<endl;
+        if(info.answer=='Y')
+        {
+            cout<<"You have chosen '"<<info.answer<<"' as your answer therefore the game will repeat."<<endl;
+        }
         
         n=1;
     }while(info.answer=='Y');
@@ -203,7 +206,7 @@ void useGen(string choice[])
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 /*              Results if the user has won the game                           */
 /******************************************************************************/
-void compare(string compran[],string choice[], float percent,int &n, int limit)
+int compare(string compran[],string choice[], float percent,int &n, int limit)
 {   
     //Output of results
     cout<<fixed<<setprecision(1)<<showpoint;
@@ -213,6 +216,7 @@ void compare(string compran[],string choice[], float percent,int &n, int limit)
     cout<<" percentage is "<<percent<<"% accuracy!"<<endl;
     cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<limit-n+1<<" tries left."<<endl<<endl;
     n=limit;
+    return n;
 }
 //000000001111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -283,29 +287,38 @@ char hints(string compran[],string choice[],bool hint2,char hint)
     }
     return hint;
 }
-
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                 Output the results for the user
+//******************************************************************************
 void results(string compran[],string choice[])
 {
    //Output of results
     cout<<"The computer choices were            "<<compran[0]<<" "<<compran[1]<<" "<<compran[2]<<" "<<compran[3]<<endl;
     cout<<"Your final results were              "<<choice[0]<<" "<<choice[1]<<" "<<choice[2]<<" "<<choice[3]<<endl;
 }
-
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//                Asks the user if they would like to play again
+//******************************************************************************
 char playA(char answer)
 {
     cout<<endl<<"Would you like to play again?"<<endl;
-        cin>>answer;
-        cout<<endl;
-        answer=toupper(answer);
+    cin>>answer;
+    cout<<endl;
+    answer=toupper(answer);
 }
-
-
-void wonLost(string choice[],string compran [],bool hint2,char hint,int limit, int n, float percent)
+//000000011111111112222222222333333333344444444445555555555666666666677777777778
+//345678901234567890123456789012345678901234567890123456789012345678901234567890
+//Compares the user choices to the computer's to determine if they have won or lost
+//******************************************************************************
+int wonLost(string choice[],string compran [],bool hint2,char hint,int limit, int n, float percent)
 {
     //if else statement to determine if the user has won or not
     if(compran[0]==choice[0]&&compran[1]==choice[1]&&compran[2]==choice[2]&&compran[3]==choice[3]){
     {
-        compare(compran,choice,percent,n,limit);
+        limit=compare(compran,choice,percent,n,limit);
+        return n;
     }
     }
     else
@@ -313,5 +326,6 @@ void wonLost(string choice[],string compran [],bool hint2,char hint,int limit, i
         hints(compran,choice,hint2,hint);
         cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<10-(n+1)<<" tries left before it is considered you have lost the game."<<endl;
         cout<<"You do however have "<<limit-(n+1)<<" tries left."<<endl;
+        return n;
     }
 }
