@@ -1,7 +1,9 @@
 This program will run the game known as Mastermind.
-You have 10 chances to guess the 4 colors the computer picked randomly before you lose
-but are given the chance to play more times. Please remember that order matters in this games and there are duplicates.
+You have 10 chances to guess the 4 colors the computer picked randomly before it is considered that you lost
+ however you are given the chance to play more times if you choose to do so. 
+Please remember that order matters in this games and there are duplicates.
 
 Please write in the format "COLOR COLOR COLOR COLOR".
 If you have one in the correct spot you will see an "X".
-If you have one color but not in the correct spot you will see an "0".
+If you have one color correct but not in the correct spot you will see an "0".
+Otherwise it will be left blank. 
