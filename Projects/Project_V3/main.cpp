@@ -5,13 +5,13 @@
  */
 
 /*
-    Memory allocation
+    **Memory allocation
 
     ***Functions with structures, used as input and output
 
-    ***Pointers with arrays and arrays of structures, internally as well as externally.
+    Pointers with arrays and arrays of structures, internally as well as externally.
 
-    Use of character arrays as well as string objects.
+    ***Use of character arrays as well as string objects.
 
     ***Reading and writing to binary files.
  */
@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
             for(int c=0;c<4;c++)
                 cout<<com[r][c]<<" ";
         }
-//        
+        
         if(info.limit<10)
         {   
             cout<<endl<<"WARNING:you have inputted a smaller number then the tries that"<<endl;
@@ -151,7 +151,7 @@ void comGen (string com[][4], string compran[])
         int index=rand()%4;
         int row=rand()%2;
         compran[i]=com[row][index];
-        cout<<compran[i]<<" ";
+//        cout<<compran[i]<<" ";
     }
     
 }
@@ -234,31 +234,84 @@ char hints(string compran[],string choice[],bool hint2,char hint)
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
                 cout<<"XXX"<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your first, second, and fourth choice are in the correct spot."<<endl;}
+                cout<<"XXX"<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have three in the correct spot and one not."<<endl;
-                cout<<"Your first, second, and third choice are in the correct spot."<<endl;}
+                cout<<"XXX"<<endl;}
             else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your third and fourth choice are in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[0]==choice[1] && compran[1]==choice[0]){
+                    cout<<"00";}
+                else if(compran[0]==choice[1] && !(compran[1]==choice[0])){
+                    cout<<"0";}
+                else if(!(compran[0]==choice[1]) && compran[1]==choice[0]){
+                    cout<<"0";}
+                cout<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your second and fourth choice are in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[0]==choice[2] && compran[2]==choice[0]){
+                    cout<<"00";}
+                else if(compran[0]==choice[2] && !(compran[2]==choice[0])){
+                    cout<<"0";}
+                else if(!(compran[0]==choice[2]) && compran[2]==choice[0]){
+                    cout<<"0";}
+                cout<<endl;}
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your second and third choice are in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[0]==choice[3] && compran[3]==choice[0]){
+                    cout<<"00";}
+                else if(compran[0]==choice[3] && !(compran[3]==choice[0])){
+                    cout<<"0";}
+                else if(!(compran[0]==choice[3]) && compran[3]==choice[0]){
+                    cout<<"0";}
+                cout<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your first and fourth choice are in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[1]==choice[2] && compran[2]==choice[1]){
+                    cout<<"00";}
+                else if(compran[1]==choice[2] && !(compran[2]==choice[1])){
+                    cout<<"0";}
+                else if(!(compran[1]==choice[2]) && compran[2]==choice[1]){
+                    cout<<"0";}
+                cout<<endl;}
             else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;
-                cout<<"Your first and third choice are in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[1]==choice[4] && compran[4]==choice[1]){
+                    cout<<"00";}
+                else if(compran[1]==choice[4] && !(compran[4]==choice[1])){
+                    cout<<"0";}
+                else if(!(compran[1]==choice[4]) && compran[4]==choice[1]){
+                    cout<<"0";}
+                cout<<endl;}
             else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have two in the correct spot and two not."<<endl;}
-            else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
-                cout<<"You have one in the correct spot."<<endl;
-                cout<<"Your first choice is in the correct spot."<<endl;}
+                cout<<"XX";
+                if(compran[2]==choice[3] && compran[3]==choice[2]){
+                    cout<<"00";}
+                else if(compran[2]==choice[3] && !(compran[3]==choice[2])){
+                    cout<<"0";}
+                else if(!(compran[2]==choice[3]) && compran[3]==choice[2]){
+                    cout<<"0";}
+                cout<<endl;}
+            else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&!(compran[3]==choice[3]))
+            {
+                cout<<"X";
+                if((compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[2]))
+                {
+                    cout<<"000";
+                }
+                else if((compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3]))
+                {
+                    cout<<"00";
+                }
+                else if((compran[3]==choice[1]||compran[3]==choice[2])&&(compran[2]==choice[1]||compran[2]==choice[3]))
+                {
+                    cout<<"00";
+                }
+                else if(!(compran[0]==choice[1]) && compran[1]==choice[0])
+                {
+                    cout<<"0";
+                }
+                cout<<endl;
+            }
             else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
                 cout<<"You have one in the correct spot."<<endl;
                 cout<<"Your second choice is in the correct spot."<<endl;}
