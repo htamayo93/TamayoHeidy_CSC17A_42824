@@ -4,6 +4,6 @@ This program will run the game known as Mastermind.
 Please remember that order matters in this games and there are duplicates.
 
 Please write in the format "COLOR COLOR COLOR COLOR".
-If you have one in the correct spot you will see an "X".
+If you have one in the correct spot and is the correct color you will see an "X".
 If you have one color correct but not in the correct spot you will see an "0".
 Otherwise it will be left blank. 

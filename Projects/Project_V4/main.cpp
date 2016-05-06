@@ -329,7 +329,8 @@ char hints(string compran[],string choice[],bool hint2,char hint)
                 else if(!(compran[1]==choice[4]) && compran[4]==choice[1]){
                     cout<<"0";}
                 cout<<endl;}
-            else if(compran[0]==choice[0]&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
+            else if(compran[0]==choice[0]&&compran[1]==choice[1]&&
+                    !(compran[2]==choice[2])&&!(compran[3]==choice[3])){
                 cout<<"XX";
                 if(compran[2]==choice[3] && compran[3]==choice[2]){
                     cout<<"00";}
@@ -338,104 +339,209 @@ char hints(string compran[],string choice[],bool hint2,char hint)
                 else if(!(compran[2]==choice[3]) && compran[3]==choice[2]){
                     cout<<"0";}
                 cout<<endl;}
-            else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
+            else if(compran[0]==choice[0]&&!(compran[1]==choice[1])&&
+                    !(compran[2]==choice[2])&&!(compran[3]==choice[3])){
                 cout<<"X";
-                if((compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[2])){
+                if((compran[1]==choice[2]||compran[1]==choice[3])&&
+                        (compran[2]==choice[1]||compran[2]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"000";}
-                else if((compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3])&&!(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[3])&&
+                        (compran[2]==choice[1]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if((compran[1]==choice[2]||compran[1]==choice[3])&&!(compran[2]==choice[1]||compran[2]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[3])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&
+                        (compran[2]==choice[1]||compran[2]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&!(compran[2]==choice[1]||compran[2]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"0";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&(compran[2]==choice[1]||compran[2]==choice[3])&& !(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[3])&&
+                        (compran[2]==choice[1]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"0";}
-                else if((compran[1]==choice[2]||compran[1]==choice[3])&&!(compran[2]==choice[1]||compran[2]==choice[3])&&!(compran[3]==choice[1]||compran[3]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[3])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[2])){
                     cout<<"0";}
                 cout<<endl;}
-            else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&!(compran[2]==choice[2])&&!(compran[3]==choice[3])){
+            else if(!(compran[0]==choice[0])&&compran[1]==choice[1]&&
+                    !(compran[2]==choice[2])&&!(compran[3]==choice[3])){
                cout<<"X";
-                if((compran[0]==choice[2]||compran[0]==choice[3])&&(compran[2]==choice[0]||compran[2]==choice[3])&&(compran[3]==choice[0]||compran[3]==choice[2])){
+                if((compran[0]==choice[2]||compran[0]==choice[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"000";}
-                else if((compran[0]==choice[2]||compran[0]==choice[3])&&(compran[2]==choice[0]||compran[2]==choice[3])&&!(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if((compran[0]==choice[2]||compran[0]==choice[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if((compran[0]==choice[2]||compran[0]==choice[3])&&!(compran[2]==choice[0]||compran[2]==choice[3])&&(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if((compran[0]==choice[2]||compran[0]==choice[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&(compran[2]==choice[0]||compran[2]==choice[3])&&(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&!(compran[2]==choice[0]||compran[2]==choice[3])&&(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"0";}
-                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&(compran[2]==choice[0]||compran[2]==choice[3])&& !(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if(!(compran[0]==choice[2]||compran[0]==choice[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"0";}
-                else if((compran[0]==choice[2]||compran[0]==choice[3])&&!(compran[2]==choice[0]||compran[2]==choice[3])&&!(compran[3]==choice[0]||compran[3]==choice[2])){
+                else if((compran[0]==choice[2]||compran[0]==choice[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[2])){
                     cout<<"0";}
                 cout<<endl;}
-            else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&compran[2]==choice[2]&&!(compran[3]==choice[3])){
+            else if(!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&
+                    compran[2]==choice[2]&&!(compran[3]==choice[3])){
                 cout<<"X";
-                if((compran[1]==choice[0]||compran[1]==choice[3])&&(compran[0]==choice[1]||compran[0]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[0])){
+                if((compran[1]==choice[0]||compran[1]==choice[3])&&
+                        (compran[0]==choice[1]||compran[0]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"000";}
-                else if((compran[1]==choice[0]||compran[1]==choice[3])&&(compran[0]==choice[1]||compran[0]==choice[3])&&!(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if((compran[1]==choice[0]||compran[1]==choice[3])&&
+                        (compran[0]==choice[1]||compran[0]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"00";}
-                else if((compran[1]==choice[0]||compran[1]==choice[3])&&!(compran[0]==choice[1]||compran[0]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if((compran[1]==choice[0]||compran[1]==choice[3])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&(compran[0]==choice[1]||compran[0]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&
+                        (compran[0]==choice[1]||compran[0]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&!(compran[0]==choice[1]||compran[0]==choice[3])&&(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[3])&&
+                        (compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"0";}
-                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&(compran[0]==choice[1]||compran[0]==choice[3])&& !(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if(!(compran[1]==choice[0]||compran[1]==choice[3])&&
+                        (compran[0]==choice[1]||compran[0]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"0";}
-                else if((compran[1]==choice[0]||compran[1]==choice[3])&&!(compran[0]==choice[1]||compran[0]==choice[3])&&!(compran[3]==choice[1]||compran[3]==choice[0])){
+                else if((compran[1]==choice[0]||compran[1]==choice[3])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[3])&&
+                        !(compran[3]==choice[1]||compran[3]==choice[0])){
                     cout<<"0";}
                 cout<<endl;}
-            else if (!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&!(compran[2]==choice[2])&&compran[3]==choice[3]){
+            else if (!(compran[0]==choice[0])&&!(compran[1]==choice[1])&&
+                    !(compran[2]==choice[2])&&compran[3]==choice[3]){
                 cout<<"X";
-                if((compran[1]==choice[2]||compran[1]==choice[0])&&(compran[2]==choice[1]||compran[2]==choice[0])&&(compran[0]==choice[1]||compran[0]==choice[2])){
+                if((compran[1]==choice[2]||compran[1]==choice[0])&&
+                        (compran[2]==choice[1]||compran[2]==choice[0])&&
+                        (compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"000";}
-                else if((compran[1]==choice[2]||compran[1]==choice[0])&&(compran[2]==choice[1]||compran[2]==choice[0])&&!(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[0])&&
+                        (compran[2]==choice[1]||compran[2]==choice[0])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"00";}
-                else if((compran[1]==choice[2]||compran[1]==choice[0])&&!(compran[2]==choice[1]||compran[2]==choice[0])&&(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[0])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[0])&&
+                        (compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&(compran[2]==choice[1]||compran[2]==choice[0])&&(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&
+                        (compran[2]==choice[1]||compran[2]==choice[0])&&
+                        (compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"00";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&!(compran[2]==choice[1]||compran[2]==choice[0])&&(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[0])&&
+                        (compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"0";}
-                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&(compran[2]==choice[1]||compran[2]==choice[0])&& !(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if(!(compran[1]==choice[2]||compran[1]==choice[0])&&
+                        (compran[2]==choice[1]||compran[2]==choice[0])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"0";}
-                else if((compran[1]==choice[2]||compran[1]==choice[0])&&!(compran[2]==choice[1]||compran[2]==choice[0])&&!(compran[0]==choice[1]||compran[0]==choice[2])){
+                else if((compran[1]==choice[2]||compran[1]==choice[0])&&
+                        !(compran[2]==choice[1]||compran[2]==choice[0])&&
+                        !(compran[0]==choice[1]||compran[0]==choice[2])){
                     cout<<"0";}
                 cout<<endl;}
             else{ 
-                if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                   (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                   (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                   (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0000";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"000";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"000";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"000";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"000";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"00";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"00";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"00";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"00";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"00";}
-                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if((compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        (compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&!(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        (compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        !(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0";}
-                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&!(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&!(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&(compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
+                else if(!(compran[0]==choice[1]||compran[0]==choice[2]||compran[0]==compran[3])&&
+                        !(compran[1]==choice[0]||compran[1]==choice[2]||compran[1]==compran[3])&&
+                        !(compran[2]==choice[0]||compran[2]==choice[1]||compran[2]==compran[3])&&
+                        (compran[3]==choice[0]||compran[3]==choice[1]||compran[3]==compran[2])){
                     cout<<"0";}
                 cout<<endl;}
             break;
