@@ -575,5 +575,3 @@ char playA(char answer)
     cout<<endl;
     answer=toupper(answer);
 }
-
-
