@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Midterm_Project
+PROJECTNAME=Tamayo, Heidy - Project 1 - 42824
 
 # Active Configuration
 DEFAULTCONF=Debug
