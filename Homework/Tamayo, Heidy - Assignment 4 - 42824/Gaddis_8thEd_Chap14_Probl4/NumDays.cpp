@@ -5,6 +5,10 @@
  */
 
 #include "NumDays.h"
+NumDays::NumDays()
+{
+    hourWd=0;
+}
 
 void NumDays::sethour(int x)
 {

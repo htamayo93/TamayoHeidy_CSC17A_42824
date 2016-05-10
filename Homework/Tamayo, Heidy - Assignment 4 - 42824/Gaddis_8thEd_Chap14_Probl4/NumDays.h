@@ -5,7 +5,6 @@
  */
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 #ifndef NUMDAYS_H
@@ -17,13 +16,13 @@ public:
     int gethour();
     float getday();
     NumDays(int);
-    NumDays(){hourWd=0;}
+    NumDays();
     int operator+(NumDays);
-    int operator-(NumDays);
-    int operator--(int);
-    int operator--();
+    int operator-(NumDays);    
     int operator++(int);
     int operator++();
+    int operator--(int);
+    int operator--();
 private:
     int hourWd;
 };

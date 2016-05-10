@@ -7,6 +7,7 @@
 //System Libraries
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 //User Libraries
 #include "NumDays.h"
@@ -18,7 +19,8 @@ using namespace std;
 
 //Execution Begins Here
 int main(int argc, char** argv) {
-
+    cout<<fixed<<setprecision(2);
+    
     //Declare and initialize the variables
     int hourWd;
     float day;
@@ -32,16 +34,16 @@ int main(int argc, char** argv) {
     NumDays nd3;
     nd3.sethour(hourWd);
     
-    cout<<"The number of days worked was "<<nd3.getday()<<endl;
+    cout<<"The number of days worked was "<<nd3.getday()<<" for "<<nd3.gethour()<<" hours."<<endl;
     
-    cout<<"Total hours worked "<<nd1+nd2<<endl;
-    cout<<"Hours difference "<<nd2-nd1<<endl;
+    cout<<"Total hours worked after adding the value of one day to another was "<<nd1+nd2<<" hours."<<endl;
+    cout<<"Between the two hour values there is a difference of "<<nd2-nd1<<"."<<endl;
+    
     nd3++;
-    
-    cout<<"The number of days worked was "<<nd3.getday()<<endl;
+    cout<<"The number of days worked after incrementing it by 0.125 was "<<nd3.getday()<<"."<<endl;
     
     nd3--;
-    cout<<"The number of days worked was "<<nd3.getday()<<endl;
+    cout<<"The number of days worked after decrementing it by 0.125 "<<nd3.getday()<<"."<<endl;
     
     //Exit stage right
     return 0;
