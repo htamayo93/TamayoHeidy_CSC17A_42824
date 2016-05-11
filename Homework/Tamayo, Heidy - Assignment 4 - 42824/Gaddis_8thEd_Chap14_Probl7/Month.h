@@ -26,6 +26,7 @@ public:
 private:
     string name;
     int month;
+    
 };
 
 #endif	/* MONTH_H */
