@@ -55,12 +55,6 @@ NumDays TimeOff::getsick()
 void TimeOff::setmaxvac(NumDays mvac) 
 {
     this->maxvac=mvac;
-    while((this->maxvac)>30)
-    {
-        cout<<"ERROR:You cannot have taken more than 240 hours of paid vacation."<<endl;
-        cout<<"Please enter the correct number of days."<<endl;
-        cin>>this->maxvac;
-    }
 }
 
 NumDays TimeOff::getmaxvac()

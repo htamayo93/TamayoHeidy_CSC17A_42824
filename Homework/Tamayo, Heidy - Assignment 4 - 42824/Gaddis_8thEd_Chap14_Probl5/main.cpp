@@ -53,6 +53,12 @@ int main(int argc, char** argv) {
     
     cout<<"What is the maximum amount of days the employee can take off for vacation?"<<endl;
     cin>>days;
+    while(days>30)
+    {
+        cout<<"ERROR:You cannot have taken more than 240 hours of paid vacation."<<endl;
+        cout<<"Please enter the correct number of days."<<endl;
+        cin>>days;
+    }
     mvac.setday(days);
     info.setmaxvac(mvac);
     
