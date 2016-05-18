@@ -18,11 +18,11 @@ public:
     string getname();
     void setmonth(int);
     int getmonth();
-    void convert();
-    int operator ++(int);
-    int operator ++();
-    int operator --(int);
-    int operator --();
+    void printn();
+    Month operator ++(int);
+    Month operator ++();
+    Month operator --(int);
+    Month operator --();
 private:
     string name;
     int month;

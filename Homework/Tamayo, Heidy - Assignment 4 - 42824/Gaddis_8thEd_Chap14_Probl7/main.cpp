@@ -35,11 +35,24 @@ int main(int argc, char** argv) {
         cout<<"Please enter the number of the month."<<endl;
         cin>>month;
         info.setmonth(month);
+        cout<<"The month is: ";
+        info.printn();
         
+        cout<<"If the month is decremented it is: ";
+        --info;
+        info.printn();
+        
+        cout<<"If the month is incremented it is: ";
+        ++info;
+        info.printn();        
     }
     else if (choice=='W')
     {
-        
+        cout<<"Please enter the month."<<endl;
+        cin>>name;
+        info.setname(name);
+        --info;
+        ++info;
     }
     else 
     {
