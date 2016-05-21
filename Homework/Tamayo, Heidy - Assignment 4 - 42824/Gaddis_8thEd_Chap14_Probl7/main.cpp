@@ -51,8 +51,17 @@ int main(int argc, char** argv) {
         cout<<"Please enter the month."<<endl;
         cin>>name;
         info.setname(name);
+        
+        cout<<"The month is in numerical form: "<<endl;
+        info.printw();
+        
+        cout<<"If the month is decremented it is: "<<endl;
         --info;
+        info.printn();
+        
+        cout<<"If the month is incremented it is: "<<endl;
         ++info;
+        info.printn();
     }
     else 
     {

@@ -118,12 +118,68 @@ void Month::printn()
     {
         cout<<"December"<<endl;
     }
-    else if(name=='JANUARY'||name=='january'||name=='January')
+}
+
+void Month::printw()
+{
+    if(name=="JANUARY"||name=="january"||name=="January")
     {
         cout<<"1"<<endl;
+        month=1;
     }
-    else if(name=='FEBRUARY'||name=='february'||name=='January')
+    else if(name=="FEBRUARY"||name=="february"||name=="February")
     {
-        cout<<"1"<<endl;
+        cout<<"2"<<endl;
+        month=2;
     }
+    else if(name=="MARCH"||name=="march"||name=="March")
+    {
+        cout<<"3"<<endl;
+        month=3;
+    }
+    else if(name=="APRIL"||name=="april"||name=="April")
+    {
+        cout<<"4"<<endl;
+        month=4;
+    }
+    else if(name=="MAY"||name=="may"||name=="May")
+    {
+        cout<<"5"<<endl;
+        month=5;
+    }
+    else if(name=="JUNE"||name=="june"||name=="June")
+    {
+        cout<<"6"<<endl;
+        month=6;
+    }
+    else if(name=="JULY"||name=="july"||name=="July")
+    {
+        cout<<"7"<<endl;
+        month=7;
+    }
+    else if(name=="AUGUST"||name=="august"||name=="August")
+    {
+        cout<<"8"<<endl;
+        month=8;
+    }
+    else if(name=="SEPTEMBER"||name=="september"||name=="September")
+    {
+        cout<<"9"<<endl;
+        month=9;
+    }
+    else if(name=="OCTOBER"||name=="october"||name=="October")
+    {
+        cout<<"10"<<endl;
+        month=10;
+    }
+    else if(name=="NOVEMBER"||name=="november"||name=="November")
+    {
+        cout<<"11"<<endl;
+        month=11;
+    }
+    else if(name=="DECEMBER"||name=="december"||name=="December")
+    {
+        cout<<"12"<<endl;
+        month=12;
+    }  
 }

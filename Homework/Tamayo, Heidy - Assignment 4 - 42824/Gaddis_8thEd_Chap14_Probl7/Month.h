@@ -19,14 +19,14 @@ public:
     void setmonth(int);
     int getmonth();
     void printn();
+    void printw();
     Month operator ++(int);
     Month operator ++();
     Month operator --(int);
     Month operator --();
 private:
     string name;
-    int month;
-    
+    int month;   
 };
 
 #endif	/* MONTH_H */
