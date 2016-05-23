@@ -19,6 +19,7 @@ public:
     void setmonth(int);
     int getmonth();
     void printn();
+    void printn2();
     void printw();
     Month operator ++(int);
     Month operator ++();

@@ -20,4 +20,3 @@ private:
 };
 
 #endif	/* NUMDAYS_H */
-

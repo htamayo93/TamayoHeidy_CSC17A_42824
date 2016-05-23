@@ -40,11 +40,11 @@ int main(int argc, char** argv) {
         
         cout<<"If the month is decremented it is: ";
         --info;
-        info.printn();
+        info.printn2();
         
         cout<<"If the month is incremented it is: ";
         ++info;
-        info.printn();        
+        info.printn2();        
     }
     else if (choice=='W')
     {
@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
         cin>>name;
         info.setname(name);
         
-        cout<<"The month is in numerical form: "<<endl;
+        cout<<"The month in numerical form: "<<endl;
         info.printw();
         
         cout<<"If the month is decremented it is: "<<endl;

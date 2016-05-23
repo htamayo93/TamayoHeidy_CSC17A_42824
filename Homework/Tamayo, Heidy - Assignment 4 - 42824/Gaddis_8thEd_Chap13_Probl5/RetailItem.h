@@ -25,4 +25,3 @@ private:
 };
 
 #endif	/* RETAILITEM_H */
-
