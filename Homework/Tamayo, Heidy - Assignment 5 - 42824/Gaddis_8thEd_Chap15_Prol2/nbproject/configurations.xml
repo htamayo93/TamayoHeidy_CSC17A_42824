@@ -5,7 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Employee.h</itemPath>
-      <itemPath>ProductionWorker.h</itemPath>
+      <itemPath>ShiftSupervisor.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -15,7 +15,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>Employee.cpp</itemPath>
-      <itemPath>ProductionWorker.cpp</itemPath>
+      <itemPath>ShiftSupervisor.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -44,9 +44,9 @@
       </item>
       <item path="Employee.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProductionWorker.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ShiftSupervisor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProductionWorker.h" ex="false" tool="3" flavor2="0">
+      <item path="ShiftSupervisor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -75,9 +75,9 @@
       </item>
       <item path="Employee.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProductionWorker.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ShiftSupervisor.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProductionWorker.h" ex="false" tool="3" flavor2="0">
+      <item path="ShiftSupervisor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -12,6 +12,12 @@ ProductionWorker::ProductionWorker()
     hourpr=0.0;
 }
 
+ProductionWorker::ProductionWorker(string names,int numbers,int hires,int shifts, float pay):Employee(names,numbers,hires)
+{
+    setshift(shifts);
+    sethourpr(pay);
+}
+
 void ProductionWorker::setshift(int x)
 {
     shift=x;

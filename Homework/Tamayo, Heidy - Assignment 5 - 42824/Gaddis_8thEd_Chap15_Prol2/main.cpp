@@ -7,8 +7,11 @@
 //System Libraries
 #include <iostream>
 
+#include "Employee.h"
+#include "ShiftSupervisor.h"
+
 //User Libraries
-#include "ProductionWorker.h"
+
 using namespace std;
 
 //Global Constants
@@ -22,26 +25,23 @@ int main(int argc, char** argv) {
     string name;
     int number;
     int hire;
-    int shift;
-    float pay;
+    int salary;
+    int bonus;
 
     cin>>name;
     
     cin>>number;
-
     
     cin>>hire;
- 
-    
-    cin>>shift;
 
+    cin>>salary;
     
-    cin>>pay;
-    ProductionWorker info(name,number,hire,shift,pay);
-    cout<<info.getname()<<endl;
-    cout<<info.gethired();
+    cin>>bonus;
+
+    ShiftSupervisor info(name,number,hire,bonus,salary);
     
-    
+    cout<<info.getname();
+    cout<<info.getbonus();
     //Exit Stage Right
     return 0;
 }

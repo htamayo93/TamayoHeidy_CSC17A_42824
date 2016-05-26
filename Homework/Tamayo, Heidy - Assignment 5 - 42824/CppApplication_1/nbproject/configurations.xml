@@ -4,8 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Employee.h</itemPath>
-      <itemPath>ProductionWorker.h</itemPath>
+      <itemPath>test.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -14,8 +13,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Employee.cpp</itemPath>
-      <itemPath>ProductionWorker.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -40,15 +37,9 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Employee.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Employee.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProductionWorker.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ProductionWorker.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="test.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -71,15 +62,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Employee.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Employee.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ProductionWorker.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ProductionWorker.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="test.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

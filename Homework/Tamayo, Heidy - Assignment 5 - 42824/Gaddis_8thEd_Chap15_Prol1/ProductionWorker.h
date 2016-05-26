@@ -11,9 +11,11 @@ using namespace std;
 #ifndef PRODUCTIONWORKER_H
 #define	PRODUCTIONWORKER_H
 
-class ProductionWorker:public Employee{
+class ProductionWorker:public Employee
+{
 public:
     ProductionWorker();
+    ProductionWorker(string,int,int,int,float);
     void setshift(int);
     int getshift();
     void sethourpr(float);
