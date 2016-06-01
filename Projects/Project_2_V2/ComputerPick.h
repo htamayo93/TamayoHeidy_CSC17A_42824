@@ -14,13 +14,14 @@ using namespace std;
 #define COMPUTERPICK_H
 
 class ComputerPick {
-public:
-    ComputerPick();
-    void comGen(string [][4],string []);//Function to generate the 4 random colors 
-                                    //from the computer
 private:
     string com[2][4];
     string cp[4];
+public:
+    ComputerPick();
+    void comGen();//Function to generate the 4 random colors from the computer
+    void choice();
+
 };
 
 #endif /* COMPUTERPICK_H */

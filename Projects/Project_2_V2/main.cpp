@@ -31,15 +31,8 @@ struct Usepick
 char * nameuse();//Function to ask the user for the name
 Usepick tries();//The number of tries the user would want
 void useGen(string[]);//Function to allow the user to enter their four colors
-int wonLost(string [],string [],int,int,float);//Function to determine
-                                                         //if the user has won or
-                                                         //Lost
-int compare(string [],string [],float,int&,int);//Comparison of the computer 
-                                                //generated and the users
-void hints(string [],string []);//hints the user may have if they 
-                                          //choose to
-void results(string [],string []);//Displays the results of the game
 char playA(char);//Function to ask the user if they would like play again
+ComputerPick  info;
 
 
 
@@ -58,8 +51,9 @@ int main(int argc, char** argv) {
     Usepick info;//Brings the information to the structure
     string str;//String that is being used to bring the file to the program
     char *name;//Ask for the users name
-    ComputerPick info;
+    ComputerPick pick;
      
+    pick.comGen();
     //Do while loop to see if the user would like to play again
     do
     {
@@ -76,12 +70,7 @@ int main(int argc, char** argv) {
         cout<<"How many tries would like?"<<endl; 
         info=tries();//Asking the user how many tries they would like
         
-        //Color choices avaliable in for loop
-        cout<<"The colors you can pick from are"<<endl;
-        for(int r=0;r<2;r++){   
-            for(int c=0;c<4;c++)
-                cout<<com[r][c]<<" ";
-        }
+        pick.choice();
         
         //If statement to warn the user the number of tries they have implemented
         if(info.limit<10){   
@@ -194,43 +183,15 @@ void useGen(string pp[])
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //Compares the user choices to the computer's to determine if they have won or lost
 //******************************************************************************
-int wonLost(string pp[],string cp [],int limit, int n, float percent)
-{
-    //if else statement to determine if the user has won or not
-    if(cp[0]==pp[0]&&cp[1]==pp[1]&&cp[2]==pp[2]&&cp[3]==pp[3]){
-    {
-        //Gives the comparison of the user to the computer choice
-        limit=compare(cp,pp,percent,n,limit);
-        return n;
-    }
-    }
-    else
-    {
-        //Gives hints if the user decides to have
-        hints(cp,pp);
-        cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<10-(n+1)<<" ";
-        cout<<"tries left before it is considered you have lost the game."<<endl;
-        cout<<"You do however have "<<limit-(n+1)<<" tries left."<<endl;
-        return n;
-    }
-}
+//int wonLost(string pp[],string cp [],int limit, int n, float percent)
+
 //000000001111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 /*              Results if the user has won the game                           */
 /******************************************************************************/
 int compare(string cp[],string pp[], float percent,int &n, int limit)
 {   
-    //Output of results
-    cout<<fixed<<setprecision(1)<<showpoint;
-    cout<<endl<<"You have won the game!"<<endl;
-    percent=((10-n)*10);
-    cout<<"It took you "<<n+1<<" tries to solve the game! Based on your number ";
-    cout<<"of tries, your";
-    cout<<" percentage is "<<percent<<"% accuracy!"<<endl;
-    cout<<endl<<"You have used up "<<n+1<<" tries, you have "<<limit-n+1<<" ";
-    cout<<"tries left."<<endl<<endl;
-    n=limit;
-    return n;
+
 }
 //000000001111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -238,72 +199,7 @@ int compare(string cp[],string pp[], float percent,int &n, int limit)
 /******************************************************************************/
 void hints(string cp[],string pp[])
 {
-    bool match[4];
-    int x=0;                        
-    int o=0;
-    cout<<endl<<"HINT: ";
-    
-    for(int i=0;i<4;i++)
-    {
-        if (pp[i]==cp[i])
-        {
-            x++;
-            match[i]=true;
-        }
-    }
-    
-    if(x==1)
-    {
-        cout<<"X";
-    }
-    else if(x==2)
-    {
-        cout<<"XX";
-    }
-    else if(x==3)
-    {
-        cout<<"XXX";
-    }
-    else if(x==4)
-    {
-        cout<<"XXXX"<<endl;
-    }
 
-    for(int i=0;i<4;i++)
-    {
-        if(match[i]==false)
-        {
-            for(int j=0;j<4;j++)
-            {
-                if(j!=i && match[j]==false)
-                {
-                    if(pp[i]==cp[j])
-                    {
-                        match[j]=true;
-                        o++;
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    
-    if(o==1)
-    {
-        cout<<"O";
-    }
-    else if(o==2)
-    {
-        cout<<"OO";
-    }
-    else if(o==3)
-    {
-        cout<<"OOO";
-    }
-    else if(o==4)
-    {
-        cout<<"OOOO"<<endl;
-    }
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
@@ -311,11 +207,7 @@ void hints(string cp[],string pp[])
 //******************************************************************************
 void results(string cp[],string pp[])
 {
-   //Output of results
-    cout<<"The computer choices were            "<<cp[0]<<" "<<cp[1]<<" ";
-    cout<<cp[2]<<" "<<cp[3]<<endl;
-    cout<<"Your final results were              "<<pp[0]<<" "<<pp[1]<<" ";
-    cout<<pp[2]<<" "<<pp[3]<<endl;
+
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
