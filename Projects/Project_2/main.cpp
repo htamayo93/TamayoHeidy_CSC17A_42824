@@ -175,7 +175,7 @@ void comGen (string com[][4], string cp[])
         int index=rand()%4;//Generates a number 1-4 for the computer pick
         int row=rand()%2;//Generate a number 1-2 for the computer pick
         cp[i]=com[row][index];//Generates the computer pick
-//        cout<<cp[i]<<" ";//DELETENOW
+        cout<<cp[i]<<" ";//DELETENOW
     }
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
@@ -257,287 +257,73 @@ int compare(string cp[],string pp[], float percent,int &n, int limit)
 /******************************************************************************/
 void hints(string cp[],string pp[])
 {
+    bool match[4];
+    int x=0;                        
+    int o=0;
+    cout<<endl<<"HINT: ";
+    
+    for(int i=0;i<4;i++)
+    {
+        if (pp[i]==cp[i])
+        {
+            x++;
+            match[i]=true;
+        }
+    }
+    
+    if(x==1)
+    {
+        cout<<"X";
+    }
+    else if(x==2)
+    {
+        cout<<"XX";
+    }
+    else if(x==3)
+    {
+        cout<<"XXX";
+    }
+    else if(x==4)
+    {
+        cout<<"XXXX"<<endl;
+    }
 
-            cout<<endl<<"HINT: ";
-            //else if statements to determine which hint will be outputted
-            if (!(cp[0]==pp[0])&&cp[1]==pp[1]&&
-                  cp[2]==pp[2]&&cp[3]==pp[3]){
-                cout<<"XXX"<<endl;}
-            else if(cp[0]==pp[0]&&!(cp[1]==pp[1])&&
-                    cp[2]==pp[2]&&cp[3]==pp[3]){
-                cout<<"XXX"<<endl;}
-            else if(cp[0]==pp[0]&&cp[1]==pp[1]&&
-                    !(cp[2]==pp[2])&&cp[3]==pp[3]){
-                cout<<"XXX"<<endl;}
-            else if(cp[0]==pp[0]&&cp[1]==pp[1]&&
-                    cp[2]==pp[2]&&!(cp[3]==pp[3])){
-                cout<<"XXX"<<endl;}
-            else if(!(cp[0]==pp[0])&&!(cp[1]==pp[1])&&
-                    cp[2]==pp[2]&&cp[3]==pp[3]){
-                cout<<"XX";
-                if(cp[0]==pp[1] && cp[1]==pp[0]){
-                    cout<<"00";}
-                else if(cp[0]==pp[1] && !(cp[1]==pp[0])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[1]) && cp[1]==pp[0]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(!(cp[0]==pp[0])&&cp[1]==pp[1]&&
-                    !(cp[2]==pp[2])&&cp[3]==pp[3]){
-                cout<<"XX";
-                if(cp[0]==pp[2] && cp[2]==pp[0]){
-                    cout<<"00";}
-                else if(cp[0]==pp[2] && !(cp[2]==pp[0])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[2]) && cp[2]==pp[0]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(!(cp[0]==pp[0])&&cp[1]==pp[1]&&
-                    cp[2]==pp[2]&&!(cp[3]==pp[3])){
-                cout<<"XX";
-                if(cp[0]==pp[3] && cp[3]==pp[0]){
-                    cout<<"00";}
-                else if(cp[0]==pp[3] && !(cp[3]==pp[0])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[3]) && cp[3]==pp[0]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(cp[0]==pp[0]&&!(cp[1]==pp[1])&&
-                    !(cp[2]==pp[2])&&cp[3]==pp[3]){
-                cout<<"XX";
-                if(cp[1]==pp[2] && cp[2]==pp[1]){
-                    cout<<"00";}
-                else if(cp[1]==pp[2] && !(cp[2]==pp[1])){
-                    cout<<"0";}
-                else if(!(cp[1]==pp[2]) && cp[2]==pp[1]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(cp[0]==pp[0]&&!(cp[1]==pp[1])&&
-                    cp[2]==pp[2]&&!(cp[3]==pp[3])){
-                cout<<"XX";
-                if(cp[1]==pp[3] && cp[3]==pp[1]){
-                    cout<<"00";}
-                else if(cp[1]==pp[3] && !(cp[3]==pp[1])){
-                    cout<<"0";}
-                else if(!(cp[1]==pp[3]) && cp[3]==pp[1]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(cp[0]==pp[0]&&cp[1]==pp[1]&&
-                    !(cp[2]==pp[2])&&!(cp[3]==pp[3])){
-                cout<<"XX";
-                if(cp[2]==pp[3] && cp[3]==pp[2]){
-                    cout<<"00";}
-                else if(cp[2]==pp[3] && !(cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[2]==pp[3]) && cp[3]==pp[2]){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(cp[0]==pp[0]&&!(cp[1]==pp[1])&&
-                    !(cp[2]==pp[2])&&!(cp[3]==pp[3])){
-                cout<<"X";
-                if((cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if((cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if((cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(!(cp[0]==pp[0])&&cp[1]==pp[1]&&
-                    !(cp[2]==pp[2])&&!(cp[3]==pp[3])){
-               cout<<"X";
-                if((cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if((cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if((cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[2])){
-                    cout<<"0";}
-                cout<<endl;}
-            else if(!(cp[0]==pp[0])&&!(cp[1]==pp[1])&&
-                    cp[2]==pp[2]&&!(cp[3]==pp[3])){
-                cout<<"X";
-                if((cp[1]==pp[0]||cp[1]==pp[3])&&
-                        (cp[0]==pp[1]||cp[0]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"000";}
-                else if((cp[1]==pp[0]||cp[1]==pp[3])&&
-                        (cp[0]==pp[1]||cp[0]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"00";}
-                else if((cp[1]==pp[0]||cp[1]==pp[3])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[0]||cp[1]==pp[3])&&
-                        (cp[0]==pp[1]||cp[0]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[0]||cp[1]==pp[3])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[3])&&
-                        (cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"0";}
-                else if(!(cp[1]==pp[0]||cp[1]==pp[3])&&
-                        (cp[0]==pp[1]||cp[0]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"0";}
-                else if((cp[1]==pp[0]||cp[1]==pp[3])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[3])&&
-                        !(cp[3]==pp[1]||cp[3]==pp[0])){
-                    cout<<"0";}
-                cout<<endl;}
-            else if (!(cp[0]==pp[0])&&!(cp[1]==pp[1])&&
-                    !(cp[2]==pp[2])&&cp[3]==pp[3]){
-                cout<<"X";
-                if((cp[1]==pp[2]||cp[1]==pp[0])&&
-                        (cp[2]==pp[1]||cp[2]==pp[0])&&
-                        (cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"000";}
-                else if((cp[1]==pp[2]||cp[1]==pp[0])&&
-                        (cp[2]==pp[1]||cp[2]==pp[0])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"00";}
-                else if((cp[1]==pp[2]||cp[1]==pp[0])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[0])&&
-                        (cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[0])&&
-                        (cp[2]==pp[1]||cp[2]==pp[0])&&
-                        (cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[0])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[0])&&
-                        (cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[1]==pp[2]||cp[1]==pp[0])&&
-                        (cp[2]==pp[1]||cp[2]==pp[0])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"0";}
-                else if((cp[1]==pp[2]||cp[1]==pp[0])&&
-                        !(cp[2]==pp[1]||cp[2]==pp[0])&&
-                        !(cp[0]==pp[1]||cp[0]==pp[2])){
-                    cout<<"0";}
-                cout<<endl;}
-            else{ 
-                if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                   (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                   (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                   (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0000";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"000";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"00";}
-                else if((cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        (cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        (cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        !(cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                else if(!(cp[0]==pp[1]||cp[0]==pp[2]||cp[0]==pp[3])&&
-                        !(cp[1]==pp[0]||cp[1]==pp[2]||cp[1]==pp[3])&&
-                        !(cp[2]==pp[0]||cp[2]==pp[1]||cp[2]==pp[3])&&
-                        (cp[3]==pp[0]||cp[3]==pp[1]||cp[3]==pp[2])){
-                    cout<<"0";}
-                cout<<endl;}
-
+    for(int i=0;i<4;i++)
+    {
+        if(match[i]==false)
+        {
+            for(int j=0;j<4;j++)
+            {
+                if(j!=i && match[i]==false)
+                {
+                    if(pp[i]==cp[j])
+                    {
+                        match[j]=true;
+                        o++;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+    
+    if(o==1)
+    {
+        cout<<"O";
+    }
+    else if(o==2)
+    {
+        cout<<"OO";
+    }
+    else if(o==3)
+    {
+        cout<<"OOO";
+    }
+    else if(o==4)
+    {
+        cout<<"OOOO"<<endl;
+    }
+    
 }
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
