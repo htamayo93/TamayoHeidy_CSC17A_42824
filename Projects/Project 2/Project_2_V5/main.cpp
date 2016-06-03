@@ -11,6 +11,7 @@
 #include <iomanip>  //Formatting 
 #include <cstdlib>  //srand and rand function
 #include <fstream>  //File I/O
+#include <ctime>
 
 //User Libraries
 #include "Results.h"
@@ -65,7 +66,6 @@ int main(int argc, char** argv) {
         }
         
         if(in.is_open()){
-            cout << " here " << endl;
             while(getline(in,str)){
                 cout<<str << endl;
             }
@@ -147,18 +147,14 @@ int main(int argc, char** argv) {
         if (n==9){   
             //Output of results after all tries have been used up
             cout<<"You have used all your tries and have lost the game."<<endl<<endl;}
-        n++;  
+        n++;
         }
         
         //Function that determine the results of the user
         pick.results(com,choice);
         
         //Function that determines if the user would like to play again
-//        info.answer=playA(info.answer);
-        cout<<endl<<"Would you like to play again?"<<endl;
-        cin>>info.answer;
-        cout<<endl;
-        info.answer=toupper(info.answer);
+        info.answer=playA(info.answer);
         
         //If statement if the user decides to play again.
         if(info.answer=='Y'){
@@ -168,11 +164,10 @@ int main(int argc, char** argv) {
         
         n=1;//Resets the increment of tries
         info.limit=0;
-//        delete []name;//Deletes the allocate memory of the user name
+
     }while(info.answer=='Y');
-//    
-//    delete []name;//Deletes the allocate memory of the user name
     
+    delete []name;//Deletes the allocate memory of the user name
     //Exit stage right
     return 0;
 }
@@ -231,11 +226,11 @@ Usepick tries()
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
 //                Asks the user if they would like to play again
 //******************************************************************************
-//char playA(char answer)
-//{
-//    cout<<endl<<"Would you like to play again?"<<endl;
-//    cin>>answer;
-//    cout<<endl;
-//    answer=toupper(answer);
-//    return answer;
-//}
+char playA(char answer)
+{
+    cout<<endl<<"Would you like to play again?"<<endl;
+    cin>>answer;
+    cout<<endl;
+    answer=toupper(answer);
+    return answer;
+}
