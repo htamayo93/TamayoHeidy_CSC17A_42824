@@ -89,17 +89,17 @@ void Results::hints(string comp[], string perp[])
         cout<<"XXXX"<<endl;
     }
 
-    for(int i=0;i<4;i++)
+    for(int k=0;k<4;k++)
     {
-        if(match[i]==false)
+        if(match[k]==false)
         {
             for(int j=0;j<4;j++)
             {
-                if(j!=i && match[j]==false)
+                if(j!=k && match[j]==false)
                 {
-                    if(perp[i]==comp[j])
+                    if(perp[k]==comp[j])
                     {
-                        match[j]=true;
+//                        match[k]=true;
                         o++;
                         break;
                     }
