@@ -11,12 +11,13 @@
 #include <iomanip>  //Formatting 
 #include <cstdlib>  //srand and rand function
 #include <fstream>  //File I/O
-#include <ctime>
+#include <ctime>    //Time
 
 //User Libraries
-#include "Results.h"
-#include "Message.h"
-#include "changelimit.h"
+#include "Results.h"//Class that does the comparison of the choices and shows results
+#include "Message.h"//Class that shows the mastermind 
+#include "changelimit.h"//Class that changes the limit if the number of turns has
+                        //ended
 using namespace std;
 
 struct Usepick
@@ -30,10 +31,10 @@ struct Usepick
 //Global Constants
 
 //Functional Prototypes
-void game();
-void Menu();
-int getN();
-void example();
+void game();//Function that displays mastermind 
+void Menu();//Function that displays if the user would like see an example
+int getN();//Function that takes in the users input of the menu
+void example();//Function that displays an example of an input and output
 char * nameuse();//Function to ask the user for the name
 Usepick tries();//The number of tries the user would want
 char playA(char);//Function to ask the user if they would like play again
@@ -44,175 +45,183 @@ int main(int argc, char** argv) {
     srand(time(NULL));
 
     //Declare and initialize variable
+    ifstream in;//File output     
+    string str;//String that is being used to bring the file to the program    
+    int inN;//The number that is inputted to determine if the user would like to
+            //see an example
+    bool reDsply=true;//Used for the switch function to default    
+    char *name;//Ask for the users name    
+    Usepick info;//Brings the information to the structure    
+    Results pick;//Object to set and bring back from the class
     int numTry=10;//The number of tries the user gets before it is considered 
-                  //they have lost.
+                  //they have lost.    
+    string com[4];//Sets the four colors for the computer    
+    string choice[4];//The 4 colors the user chooses
     int n=0;//The increments to indicate the turns allowed before the user loses
     float percent;//The intervals of the turns, the percentage of the accuracy 
-    ifstream in;//File output 
-    Usepick info;//Brings the information to the structure
-    string str;//String that is being used to bring the file to the program
-    char *name;//Ask for the users name
-    string choice[4];//The 4 colors the user chooses
-    Results pick;
-    string com[4];
-    char answer;
-    changelimit change;
-    int inN;
-    bool reDsply=true;
-    
-     
+    changelimit change;//Allows the user to change the limit of their tries
+    char answer;//Answer the user inputs to determine if they would like to play again
+
     //Do while loop to see if the user would like to play again
     do
     {
+        //Function that displays the message
         game();
         cout<<endl<<endl;
-        
-        try {
+        //Try catch function in order to display the instructions from the text
+        try 
+        {
           in.open("Instructions.txt",ios::in|ios::binary);//Opens the file   
         }
-        catch (std::ios_base::failure& e) {
+        catch (std::ios_base::failure& e) 
+        {
           std::cerr << e.what() << '\n';
         }
         
-        if(in.is_open()){
-            while(getline(in,str)){
+        //Reads the file into the program 
+        if(in.is_open())
+        {
+            while(getline(in,str))
+            {
                 cout<<str << endl;
             }
         }
-    
         in.close();//Closes the file
         cout<<endl<<endl;
+        Menu();//Menu asking the user if they would like to see an example
+        inN=getN();//Input that user puts to know if they would like an example
         
-        Menu();
-        inN=getN();
+        //Switch statement to determine if the program should show the example
         switch(inN)
         {
-            case 1:  {example();break; }
+            case 1:  {example();break; }//Shows the example
             default: {reDsply=false;}
         }
-        
         cout<<endl;
-            name=nameuse();//Function for user to write their name
+        
+        name=nameuse();//Function for user to write their name
 
-            cout<<"How many tries would like?"<<endl; 
-            info=tries();//Asking the user how many tries they would like
+        cout<<"How many tries would like?"<<endl; 
+        info=tries();//Asking the user how many tries they would like
 
-            pick.choice();//Declares the color the user can use
+        pick.choice();//Declares the color the user can use
 
-            //If statement to warn the user the number of tries they have implemented
-            if(info.limit<10){   
-                cout<<endl<<endl<<"WARNING:you have inputted a smaller number then ";
-                cout<<"the tries that"<<endl;
-                cout<<"is allowed. If you would like to have to have 10 tries then"<<endl;
-                cout<<"the number you inputted type 'c' otherwise type anything else."<<endl;
-                cin>>info.change;
-                info.change=toupper(info.change);//Changes the letter choice to uppercase
+        //If statement to warn the user the number of tries they have implemented
+        if(info.limit<10){   
+            cout<<endl<<endl<<"WARNING:you have inputted a smaller number then ";
+            cout<<"the tries that"<<endl;
+            cout<<"is allowed. If you would like to have to have 10 tries then"<<endl;
+            cout<<"the number you inputted type 'c' otherwise type anything else."<<endl;
+            cin>>info.change;
+            info.change=toupper(info.change);//Changes the letter choice to uppercase
 
-                //If statement to change the number of tries if the user wishes to
-                if(info.change=='C'){
-                 info.limit=info.limit>numTry?info.limit:numTry;//Ternary operator
-                }
+            //If statement to change the number of tries if the user wishes to
+            if(info.change=='C'){
+             info.limit=info.limit>numTry?info.limit:numTry;//Ternary operator
             }
+        }
 
-            pick.setlimit(info.limit);//Sets the limit to class
+        pick.setlimit(info.limit);//Sets the limit to class
+        pick.comGen();//Generates the random colors for the computer
 
-            pick.comGen();//Generates the random colors for the computer
+        //Sets the colors the computer has generated to main
+        com[0]=pick.getcomp1();
+        com[1]=pick.getcomp2();
+        com[2]=pick.getcomp3();
+        com[3]=pick.getcomp4();
 
-            //Sets the colors the computer has generated to main
-            com[0]=pick.getcomp1();
-            com[1]=pick.getcomp2();
-            com[2]=pick.getcomp3();
-            com[3]=pick.getcomp4();
-
-            //while loop to generate the number tries for the user
-            while (n+1<=info.limit)
+        //while loop to generate the number tries for the user
+        while (n+1<=info.limit)
+        {
+            cout<<endl<<"Please pick your colors you would want displayed going"<<endl;
+            cout<<"from left to right."<<endl;
+            //Output request the user to enter the 4 colors
+            for (int i=0;i<4;i++)
             {
-                cout<<endl<<"Please pick your colors you would want displayed going"<<endl;
-                cout<<"from left to right."<<endl;
-                //Output request the user to enter the 4 colors
-                for (int i=0;i<4;i++)
+                cin>>choice[i];
+                //If statement to uppercase the users choices
+                if (choice[i]==choice[0])
                 {
-                    cin>>choice[i];
-                    //If statement to uppercase the users choices
-                    if (choice[i]==choice[0])
+                    for (int p=0;p<choice[0].size();p++)
                     {
-                        for (int p=0;p<choice[0].size();p++)
-                        {
-                            choice[0][p]=toupper(choice[0][p]);
-                        }
-                    }
-
-                    if (choice[i]==choice[1])
-                    {
-                        for (int p=0;p<choice[1].size();p++)
-                        {
-                            choice[1][p]=toupper(choice[1][p]);}
-                    }
-
-                    if (choice[i]==choice[2])
-                    {
-                        for (int p=0;p<choice[2].size();p++)
-                        {
-                            choice[2][p]=toupper(choice[2][p]);}
-                    }
-
-                    if (choice[i]==choice[3])
-                    {
-                        for (int p=0;p<choice[3].size();p++)
-                        {
-                            choice[3][p]=toupper(choice[3][p]);}
+                        choice[0][p]=toupper(choice[0][p]);
                     }
                 }
 
-                pick.setpick1(choice[0]);
-                pick.setpick2(choice[1]);
-                pick.setpick3(choice[2]);
-                pick.setpick4(choice[3]);
-
-                pick.setn(n);
-
-                //Function to determine if the user has won or lost the game
-                n=pick.wonLost(choice,com,info.limit,n,percent);
-
-                //if statement to indicate the user has used up the ten turns they
-                //to solve the same is over and is now considered they lost
-                if (n==9)
-                {   
-                    //Output of results after all tries have been used up
-                    cout<<"You have used all your tries and have lost the game."<<endl<<endl;
-                }
-                n++;
-                if(n==info.limit)
+                if (choice[i]==choice[1])
                 {
-                    cout<<"You have lost the game however you can increment your play"<<endl;
-                    cout<<"by 1 if you would like to keep playing. Type Y for yes or"<<endl;
-                    cout<<"any other character to not take a extra turn."<<endl;
-                    cin>>answer;
-                    answer=toupper(answer);
-                    if(answer=='Y')
+                    for (int p=0;p<choice[1].size();p++)
                     {
-                        change.setlimit2(info.limit);
-                        ++change;
-                        pick.setlimit(change.getlimit2());
-                        info.limit=change.getlimit2();
-                    }
+                        choice[1][p]=toupper(choice[1][p]);}
+                }
+
+                if (choice[i]==choice[2])
+                {
+                    for (int p=0;p<choice[2].size();p++)
+                    {
+                        choice[2][p]=toupper(choice[2][p]);}
+                }
+
+                if (choice[i]==choice[3])
+                {
+                    for (int p=0;p<choice[3].size();p++)
+                    {
+                        choice[3][p]=toupper(choice[3][p]);}
                 }
             }
+            //Sets the color choices to the class
+            pick.setpick1(choice[0]);
+            pick.setpick2(choice[1]);
+            pick.setpick3(choice[2]);
+            pick.setpick4(choice[3]);
 
-            //Function that determine the results of the user
-            pick.results(com,choice);
+            pick.setn(n);//Sets the increment in the classes
 
-            //Function that determines if the user would like to play again
-            info.answer=playA(info.answer);
+            //Function to determine if the user has won or lost the game
+            n=pick.wonLost(choice,com,info.limit,n,percent);
 
-            //If statement if the user decides to play again.
-            if(info.answer=='Y'){
-                cout<<"You have chosen '"<<info.answer<<"' as your answer therefore ";
-                cout<<"the game will repeat."<<endl;
+            //if statement to indicate the user has used up the ten turns they
+            //to solve the same is over and is now considered they lost
+            if (n==9)
+            {   
+                //Output of results after all tries have been used up
+                cout<<"You have used all your tries and have lost the game."<<endl<<endl;
             }
+            n++;//increments the turns
+            
+            //If statement to allow the user to have an extra turn if they run out
+            if(n==info.limit)
+            {
+                cout<<"You have lost the game however you can increment your play"<<endl;
+                cout<<"by 1 if you would like to keep playing. Type Y for yes or"<<endl;
+                cout<<"any other character to not take a extra turn."<<endl;
+                cin>>answer;
+                answer=toupper(answer);
+                if(answer=='Y')
+                {
+                    //To determine if the limit should be changed
+                    change.setlimit2(info.limit);
+                    ++change;
+                    pick.setlimit(change.getlimit2());
+                    info.limit=change.getlimit2();
+                }
+            }
+        }
 
-            n=1;//Resets the increment of tries
-            info.limit=0;
+        //Function that determine the results of the user
+        pick.results(com,choice);
+
+        //Function that determines if the user would like to play again
+        info.answer=playA(info.answer);
+
+        //If statement if the user decides to play again.
+        if(info.answer=='Y'){
+            cout<<"You have chosen '"<<info.answer<<"' as your answer therefore ";
+            cout<<"the game will repeat."<<endl;
+        }
+
+        n=1;//Resets the increment of tries
+        info.limit=0;
     }while(info.answer=='Y');
     
     delete []name;//Deletes the allocate memory of the user name
@@ -222,7 +231,7 @@ int main(int argc, char** argv) {
 
 //000000011111111112222222222333333333344444444445555555555666666666677777777778
 //345678901234567890123456789012345678901234567890123456789012345678901234567890
-//                     Gives the name of the game using a template
+//                Gives the name of the game using a template
 //******************************************************************************
 void game()
 {
