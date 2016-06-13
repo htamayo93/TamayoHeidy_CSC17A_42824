@@ -6,7 +6,7 @@
 
 //System Libraries
 #include <iostream>
-#include "Date.h"
+#include "Date2.h"
 using namespace std;
 
 //User Libraries
@@ -22,30 +22,40 @@ int main(int argc, char** argv) {
     int day;
     int month;
     int year;
-    Date info;
+    Date2 info;
+    bool correct=true;
     cout<<"Please enter the month."<<endl;
-    cin>>month;   
-    while(month>12||month<1)
+    cin>>month;
+    
+    while(correct)
     {
-        if(month>12||month<1)
+        try
         {
-            cout<<"Error:Please enter a correct month."<<endl;
+            info.setmonth(month);
+            correct=false;
         }
-        cin>>month;
+        catch(Date2::except)
+        {
+            cout<<"You have entered an invalid number. Please try again."<<endl;
+            cin>>month;
+        }
     }
-    info.setmonth(month);
+    correct=true;
     cout<<"Please enter the day."<<endl;
     cin>>day;
-    
-    while(day>31||day<1)
+    while(correct)
     {
-        if(day>31||day<1)
+        try
         {
-            cout<<"Error:Please enter a correct day."<<endl;
+            info.setday(day);
+            correct=false;
         }
-        cin>>day;
+        catch(Date2::except)
+        {
+            cout<<"You have entered an invalid number. Please try again."<<endl;
+            cin>>day;
+        }
     }
-    info.setday(day);
     cout<<"Please enter the year."<<endl;
     cin>>year;
     info.setyear(year);

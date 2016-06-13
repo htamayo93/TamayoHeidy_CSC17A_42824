@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=project_2_final
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/project_2_final
+CND_ARTIFACT_NAME_Debug=tamayo__heidy_-_project_2_-_42824
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/tamayo__heidy_-_project_2_-_42824
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=project2final.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/project2final.tar
+CND_PACKAGE_NAME_Debug=tamayo,heidy-project2-42824.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/tamayo,heidy-project2-42824.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=project_2_final
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/project_2_final
+CND_ARTIFACT_NAME_Release=tamayo__heidy_-_project_2_-_42824
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/tamayo__heidy_-_project_2_-_42824
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=project2final.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/project2final.tar
+CND_PACKAGE_NAME_Release=tamayo,heidy-project2-42824.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/tamayo,heidy-project2-42824.tar
 #
 # include compiler specific variables
 #
